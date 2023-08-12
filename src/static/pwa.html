@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <script>
+    console.log("pwa.html opened");
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+
+    const url_b64 = params.url_b64;
+    const redirectLink = atob(url_b64);
+    window.location.href = redirectLink;
+  </script>
+</head>
+<body>
+
+</body>
+</html>
